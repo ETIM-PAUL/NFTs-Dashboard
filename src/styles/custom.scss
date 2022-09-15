@@ -1,0 +1,135 @@
+$light: #fff;
+$dark: #191919;
+$search-input-width: 400px;
+$lightColor: #0f1419;
+$darkColor: #fff;
+$light-input-bg: rgba(210, 217, 233, 0.4);
+$lightIcon: rgba(15, 20, 25, 0.85);
+$primary-color-light: rgba(255, 255, 255, 0.7);
+
+@font-face {
+  font-family: "Outfit-Regular";
+  src: local("OutfitRegular"),
+    url("../fonts/Outfit-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+.font-light {
+  color: $lightColor;
+}
+.font-dark {
+  color: $darkColor;
+}
+.font-weight {
+  font-weight: 500;
+}
+.default-font {
+  font-size: 12px;
+}
+.default-btn {
+  border: none;
+  background-color: #1364e9;
+}
+.blue {
+  color: #1364e9;
+}
+.icon-light {
+  color: $lightIcon;
+}
+
+.content-light {
+  background-color: #d2d9e9;
+}
+
+.bg-white {
+  background-color: $light !important;
+}
+.primary-bg-light {
+  background-color: $primary-color-light !important;
+}
+.-bg-dark {
+  background-color: $dark;
+}
+.filter-btn {
+  opacity: 0.88;
+  border-radius: 70px;
+}
+.card {
+  border-radius: 25px !important;
+}
+.bg-ash {
+  background-color: $light-input-bg !important;
+}
+.sun-light {
+  color: #1364e9;
+  background-color: white;
+  border-radius: 50%;
+}
+.sun-dark {
+  color: #1364e9;
+  background-color: #23262c;
+  border-radius: 50%;
+}
+.moon-light {
+  color: rgba(15, 20, 25, 0.54);
+}
+.moon-dark {
+  color: #1364e9;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.search-width {
+  width: $search-input-width !important;
+  height: 35px !important;
+  border: none !important;
+  font-family: Outfit-Regular;
+}
+
+.font-regular {
+  font-family: Outfit-Regular;
+}
+
+.mode-button {
+  border-radius: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 40px;
+  width: 89px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+.light-mood-button {
+  background-color: #d2d9e9;
+}
+.dark-mood-button {
+  background-color: #23262c;
+}
+
+.light-mode-button:focus {
+  outline: none; /* Not ideal for accessibility */
+}
+
+.light-mode-button span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #d6d7db;
+  box-shadow: inset 1px 1px 3px 0 rgb(0 0 0 / 40%);
+  transition: 0.3s;
+}
+
+.light-mode-button span:nth-child(2) {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 40%);
+  transition: 0.3s;
+}
