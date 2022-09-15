@@ -16,7 +16,7 @@ const SidePanel = () => {
     { username: "@fruganfur", items: 3.16 },
   ];
   return (
-    <div className="col-3 content-light pb-3">
+    <div className="col-3 content-light pb-3 overflow-scroll">
       <section className="pe-3 py-3 font-regular">
         <span className="fs-6 font-light fw-bolder">Highest Bid</span>
         <div className="py-2 mt-2 px-3 d-block bg-light card">

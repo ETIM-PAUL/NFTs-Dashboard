@@ -14,7 +14,7 @@ function App() {
           <TopHeader />
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/messages" element={<Dashboard />} />
+            <Route path="/messages" />
           </Routes>
         </div>
       </div>

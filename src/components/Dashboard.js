@@ -1,52 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import NFT1 from "../assets/NFTs/NFT1.png";
 import NFT2 from "../assets/NFTs/NFT2.png";
 import NFT3 from "../assets/NFTs/NFT3.png";
-import darkMarket from "../assets/icons/darkMarket.svg";
 import Profile from "../assets/icons/profile.svg";
-import EthIcon from "../assets/icons/ethIcon.svg";
 import SidePanel from "./SidePanel";
+import NftCard from "./NftCard";
+import NftRowData from "./NftRowData";
+import Loved from "../assets/icons/loved.svg";
+import Heart from "../assets/icons/heart.svg";
 
-const FilterValue = ({ value }) => {
-  return (
-    <span className="fs-6 d-flex justify-content-center primary-bg-light filter-btn col-2 py-1">
-      {value}
-    </span>
-  );
-};
-const NftRowData = ({ ...props }) => {
-  return (
-    <>
-      <div className="pt-2" />
-      <tbody className="pe-4">
-        <td>
-          {" "}
-          <div className="d-flex gap-1 align-items-center">
-            <img
-              src={Profile}
-              alt=""
-              style={{ width: "40px", height: "40px" }}
-            />
-            <span className="font-light font-regular font-weight">
-              {props.name}
-            </span>
-          </div>
-        </td>
-        <td className="default-font">
-          <img src={EthIcon} alt="" className="pe-1" />
-          {props.volume}
-        </td>
-        <td className="default-font">{props.change}</td>
-        <td className="default-font">{props.owners}K</td>
-        <td className="default-font">
-          <img src={EthIcon} alt="" className="pe-1" />
-          {props.midprice}
-        </td>
-        <td className="default-font">{props.items}</td>
-      </tbody>
-    </>
-  );
-};
 const CreatorFlex = ({ ...props }) => {
   return (
     <div className="col-5 me-4 d-flex align-items-center justify-content-between">
@@ -67,32 +29,24 @@ const CreatorFlex = ({ ...props }) => {
     </div>
   );
 };
-const NftCard = ({ ...props }) => {
+const FilterValue = ({ value, setFilter, filter }) => {
   return (
-    <div className="py-2 px-2 d-block bg-light card">
-      <img src={props.nftImg} alt="" />
-      <div className="d-flex justify-content-between my-2 align-items-center">
-        <div className="d-flex gap-1 align-items-center">
-          <img src={Profile} alt="" style={{ width: "40px", height: "40px" }} />
-          <span className="icon-light">{props.username}</span>
-        </div>
-        <span className="font-light fw-semibold">{props.amount} ETH</span>
-      </div>
-      <div className="d-flex justify-content-between">
-        <span className="fw-semibold">{props.nftName}</span>
-        <span className="icon-light">Current bid</span>
-      </div>
-      <button
-        type="button"
-        className="default-btn btn-primary w-100 filter-btn p-2 mt-3 text-white d-flex justify-content-center gap-2 align-items-center"
-      >
-        <img src={darkMarket} alt="" />
-        <span className="default-font  fw-semibold">Place Bid</span>
-      </button>
-    </div>
+    <span
+      className={
+        filter === value
+          ? "s-6 d-flex justify-content-center active-filter font-dark filter-btn col-2 py-1"
+          : "s-6 d-flex justify-content-center primary-bg-light filter-btn col-2 py-1"
+      }
+      onClick={() => setFilter(value)}
+    >
+      {value}
+    </span>
   );
 };
+
 const Dashboard = () => {
+  const [filter, setFilter] = useState("Art");
+
   return (
     <div className="d-flex">
       <div className="vh-100 content-light overflow-scroll col-9 pb-5">
@@ -102,19 +56,33 @@ const Dashboard = () => {
             <span className="fs-6 blue me-2">See more</span>
           </div>
           <div className="col-12 d-flex font-regular gap-3 mt-3">
-            <FilterValue value="Art" />
-            <FilterValue value="Music" />
-            <FilterValue value="Sport" />
-            <FilterValue value="Photography" />
-            <FilterValue value="Photos" />
+            <FilterValue value="Art" setFilter={setFilter} filter={filter} />
+            <FilterValue value="Music" setFilter={setFilter} filter={filter} />
+            <FilterValue value="Sport" setFilter={setFilter} filter={filter} />
+            <FilterValue
+              value="Photography"
+              setFilter={setFilter}
+              filter={filter}
+            />
+            <FilterValue value="Photos" setFilter={setFilter} filter={filter} />
           </div>
-          <div className="w-100 d-flex font-regular gap-3 mt-3">
+          <div
+            className="font-regular gap-3 mt-3"
+            style={{
+              display: "grid",
+              gridAutoRows: 0,
+              gridTemplateColumns: `repeat(auto-fit,minmax(200px, 1fr))`,
+              gridTemplateRows: "100%",
+            }}
+          >
             <NftCard
               nftImg={NFT1}
               time="04h 07m 1s"
               nftName="Pareelia"
               amount="12.5"
               username="mybid"
+              loved={Loved}
+              notLoved={Heart}
             />
             <NftCard
               nftImg={NFT2}
@@ -122,6 +90,8 @@ const Dashboard = () => {
               nftName="Hanillia"
               amount="11.0"
               username="@bluecart"
+              loved={Loved}
+              notLoved={Heart}
             />
             <NftCard
               nftImg={NFT3}
@@ -129,13 +99,8 @@ const Dashboard = () => {
               nftName="Henchman"
               amount="10.2"
               username="@worthgan"
-            />
-            <NftCard
-              nftImg={NFT3}
-              time="04h 07m 1s"
-              nftName="Henchman"
-              amount="10.2"
-              username="@worthgan"
+              notLoved={Heart}
+              loved={Loved}
             />
           </div>
         </section>
@@ -177,12 +142,14 @@ const Dashboard = () => {
             <div className="d-flex flex-wrap justify-content-center my-2 align-items-center gap-2">
               <table className="col-12">
                 <thead>
-                  <td className="font-regular">Collection</td>
-                  <td className="font-regular">Volume</td>
-                  <td className="font-regular">24h</td>
-                  <td className="font-regular">Owners</td>
-                  <td className="font-regular">Mid Price</td>
-                  <td className="font-regular">Items</td>
+                  <tr>
+                    <th className="font-regular">Collection</th>
+                    <th className="font-regular">Volume</th>
+                    <th className="font-regular">24h</th>
+                    <th className="font-regular">Owners</th>
+                    <th className="font-regular">Mid Price</th>
+                    <th className="font-regular">Items</th>
+                  </tr>
                 </thead>
                 <NftRowData
                   name="@ibrahimaliu"

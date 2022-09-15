@@ -3,6 +3,8 @@ import NotyIcon from "../assets/icons/noty.svg";
 import Profile from "../assets/icons/profile.svg";
 import DropDown from "../assets/icons/dropdown.svg";
 const TopHeader = () => {
+  const lightTheme = localStorage.getItem("light");
+
   return (
     <>
       <nav className="navbar align-items-start navbar-light py-2 px-5 bg-ash">
@@ -28,7 +30,7 @@ const TopHeader = () => {
               className=" ms-2"
               style={{ width: "40px", height: "40px" }}
             />
-            <span className="d-flex align-items-center font-light">
+            <span className="d-flex align-items-center font-light font-regular fw-semibold">
               @etimpaul
             </span>
             <img src={DropDown} alt="" className="" />
