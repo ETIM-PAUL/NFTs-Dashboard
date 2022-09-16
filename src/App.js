@@ -1,5 +1,4 @@
 import React from "react";
-import { Counter } from "./features/counter/Counter";
 import TopHeader from "./components/TopHeader";
 import SideBar from "./components/SideBar";
 import { Routes, Route } from "react-router-dom";

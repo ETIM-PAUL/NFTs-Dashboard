@@ -1,12 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import EthIcon from "../assets/icons/ethIcon.svg";
 import Profile from "../assets/icons/profile.svg";
+import { selectTheme } from "../redux/themeSlice";
 
 const NftRowData = ({ ...props }) => {
+  const theme = useSelector(selectTheme);
+
   return (
     <>
       <div className="pt-2" />
-      <tbody className="pe-4">
+      <tbody className={theme !== "light" ? "font-dark" : ""}>
         <tr>
           <td>
             {" "}
@@ -16,7 +20,13 @@ const NftRowData = ({ ...props }) => {
                 alt=""
                 style={{ width: "40px", height: "40px" }}
               />
-              <span className="font-light font-regular font-weight">
+              <span
+                className={
+                  theme === "light"
+                    ? "font-light font-regular font-weight"
+                    : "font-dark font-regular font-weight"
+                }
+              >
                 {props.name}
               </span>
             </div>

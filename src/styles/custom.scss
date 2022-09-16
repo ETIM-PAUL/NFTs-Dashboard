@@ -3,9 +3,12 @@ $dark: #191919;
 $search-input-width: 400px;
 $lightColor: #0f1419;
 $darkColor: #fff;
+$darkcard: #272d37;
 $light-input-bg: rgba(210, 217, 233, 0.4);
+$dark-input-bg: rgba(39, 45, 55, 0.4);
 $lightIcon: rgba(15, 20, 25, 0.85);
 $primary-color-light: rgba(255, 255, 255, 0.7);
+$primary-font-color-light: rgba(255, 255, 255, 0.5);
 
 @font-face {
   font-family: "Outfit-Regular";
@@ -18,7 +21,17 @@ $primary-color-light: rgba(255, 255, 255, 0.7);
   color: $lightColor;
 }
 .font-dark {
-  color: $darkColor;
+  color: $darkColor !important;
+}
+.bg-ash {
+  background-color: $light-input-bg !important;
+}
+.input-dark,
+.dark-filter-bg {
+  background-color: $dark-input-bg !important;
+}
+.header-dark-bg {
+  background-color: $dark;
 }
 .font-weight {
   font-weight: 500;
@@ -37,12 +50,21 @@ $primary-color-light: rgba(255, 255, 255, 0.7);
   color: $lightIcon;
 }
 
+.icon-dark {
+  color: $primary-font-color-light !important;
+}
 .content-light {
   background-color: #d2d9e9;
+}
+.content-dark {
+  background-color: #1b1c1e;
 }
 
 .bg-white {
   background-color: $light !important;
+}
+.-bg-dark {
+  background-color: $dark !important;
 }
 .primary-bg-light {
   background-color: $primary-color-light !important;
@@ -50,18 +72,16 @@ $primary-color-light: rgba(255, 255, 255, 0.7);
 .active-filter {
   background-color: #1364e9;
 }
-.-bg-dark {
-  background-color: $dark !important;
-}
 .filter-btn {
   opacity: 0.88;
   border-radius: 70px;
 }
-.card {
+.cardborder {
+  border: none !important;
   border-radius: 25px !important;
 }
-.bg-ash {
-  background-color: $light-input-bg !important;
+.darkcard {
+  background-color: $darkcard !important;
 }
 .sun-light {
   color: #1364e9;
@@ -121,4 +141,20 @@ $primary-color-light: rgba(255, 255, 255, 0.7);
 
 ::scroll-bar {
   display: none;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: red;
 }

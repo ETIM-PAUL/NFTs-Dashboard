@@ -7,7 +7,6 @@ const SideBarItem = ({ title, icon, link }) => {
   useEffect(() => {
     setLightTheme(JSON.parse(localStorage.getItem("light")));
   }, []);
-  console.log(lightTheme);
 
   return (
     <NavLink

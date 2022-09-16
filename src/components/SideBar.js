@@ -9,24 +9,17 @@ import Col from "../assets/icons/collection.svg";
 import Ad from "../assets/NFTs/bottomAd.png";
 import SideBarItem from "./SideBarItem";
 import { HiSun, HiMoon } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux";
+import { themeStatus, selectTheme } from "../redux/themeSlice";
 
 const SideBar = () => {
-  const [light, setLight] = useState(
-    localStorage.getItem("light")
-      ? JSON.parse(localStorage.getItem("light"))
-      : true
-  );
-
-  // useEffect(() => {
-  //   if (localStorage.getItem("light") === undefined) {
-  //     localStorage.setItem("light", true);
-  //   } else localStorage.setItem("light", light);
-  // }, [light]);
+  const theme = useSelector(selectTheme);
+  const dispatch = useDispatch();
 
   return (
     <div
       className={
-        light === true
+        theme === "light"
           ? "align-items-start px-2 bg-white col-2"
           : "align-items-start px-2 -bg-dark col-2"
       }
@@ -35,8 +28,15 @@ const SideBar = () => {
         <span className="navbar-brand mx-0 fw-bold fs-6 " href="#">
           <img src={Logo} alt="" className="" />
         </span>
-        <span class="navbar-brand fw-bold fs-6 font-light" href="#">
-          Ai NFT{light}
+        <span
+          class={
+            theme === "light"
+              ? "navbar-brand fw-bold fs-6 font-light"
+              : "navbar-brand fw-bold fs-6 font-dark"
+          }
+          href="#"
+        >
+          Ai NFT{theme}
         </span>
       </div>
 
@@ -48,7 +48,7 @@ const SideBar = () => {
       <div class="mt-5 pt-2 px-3">
         <span
           className={
-            light
+            theme === "light"
               ? "font-regular fw-semibold"
               : "font-regular fw-semibold font-dark"
           }
@@ -63,33 +63,31 @@ const SideBar = () => {
         <div className="d-flex gap-3">
           <span
             className={
-              light === true
+              theme === "light"
                 ? "font-regular fw-semibold d-flex align-items-center"
                 : "font-regular font-dark fw-semibold d-flex align-items-center"
             }
           >
-            {light === true ? "Light mode" : "Dark mode"}
+            {theme === "light" ? "Light mode" : "Dark mode"}
           </span>
           <button
             className={
-              light === true
+              theme === "light"
                 ? "light-mood-button mode-button d-flex justify-content-between align-items-center"
                 : "dark-mood-button mode-button d-flex justify-content-between align-items-center"
             }
           >
             <HiSun
-              className={light === true ? "fs-2 sun-light" : "fs-2 sun-dark"}
+              className={theme === "light" ? "fs-2 sun-light" : "fs-2 sun-dark"}
               onClick={() => {
-                setLight(true);
-                localStorage.setItem("light", true);
+                dispatch(themeStatus("light"));
               }}
             />
             <HiMoon
-              className={light === true ? "fs-3 moon-light" : "fs-3 moon-dark"}
-              onClick={() => {
-                setLight(false);
-                localStorage.setItem("light", false);
-              }}
+              className={
+                theme === "light" ? "fs-3 moon-light" : "fs-3 moon-dark"
+              }
+              onClick={() => dispatch(themeStatus("dark"))}
             />
           </button>
         </div>

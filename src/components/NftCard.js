@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import Profile from "../assets/icons/profile.svg";
 import darkMarket from "../assets/icons/darkMarket.svg";
 import fire from "../assets/icons/fire.svg";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../redux/themeSlice";
 
 const NftCard = ({ ...props }) => {
+  const theme = useSelector(selectTheme);
+
   const [loved, setLoved] = useState(true);
   return (
-    <div className="py-2 px-2 d-block bg-light card">
+    <div
+      className={
+        theme === "light"
+          ? "py-2 px-2 d-block cardborder card"
+          : "py-2 px-2 d-block darkcard cardborder card"
+      }
+    >
       <img src={props.nftImg} alt="" className="img-fluid w-100 h-auto" />
-
       <img
         src={loved ? props.loved : props.notLoved}
         alt=""
@@ -37,13 +46,31 @@ const NftCard = ({ ...props }) => {
       <div className="d-flex justify-content-between my-2 align-items-center">
         <div className="d-flex gap-1 align-items-center">
           <img src={Profile} alt="" style={{ width: "40px", height: "40px" }} />
-          <span className="icon-light">{props.username}</span>
+          <span className={theme === "light" ? "icon-light" : "font-dark"}>
+            {props.username}
+          </span>
         </div>
-        <span className="font-light fw-semibold">{props.amount} ETH</span>
+        <span
+          className={
+            theme === "light"
+              ? "font-light fw-semibold"
+              : "font-dark fw-semibold"
+          }
+        >
+          {props.amount} ETH
+        </span>
       </div>
       <div className="d-flex justify-content-between">
-        <span className="fw-semibold">{props.nftName}</span>
-        <span className="icon-light">Current bid</span>
+        <span
+          className={
+            theme === "light" ? "fw-semibold" : "fw-semibold font-dark"
+          }
+        >
+          {props.nftName}
+        </span>
+        <span className={theme === "light" ? "icon-light" : "icon-dark"}>
+          Current bid
+        </span>
       </div>
       <button
         type="button"
