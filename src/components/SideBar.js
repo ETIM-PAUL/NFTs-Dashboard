@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../assets/icons/logo.svg";
+import LogoDark from "../assets/icons/logoDark.svg";
 import Market from "../assets/icons/market.svg";
 import Dashboard from "../assets/icons/dashboard.svg";
 import Message from "../assets/icons/messages.svg";
@@ -28,13 +29,13 @@ const SideBar = () => {
     >
       <div className="d-flex p-3 col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap gap-2">
         <span className="navbar-brand mx-0 fw-bold fs-6 " href="#">
-          <img src={Logo} alt="" className="" />
+          <img src={theme === "light" ? Logo : LogoDark} alt="" className="" />
         </span>
         <span
           className={`navbar-brand fw-bold fs-6 ${theme === "light" ? "font-light" : "font-dark"}`}
           href="#"
         >
-          Ai NFT{theme}
+          Ai NFT
         </span>
       </div>
 

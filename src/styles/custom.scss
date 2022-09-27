@@ -18,10 +18,10 @@ $primary-font-color-light: rgba(255, 255, 255, 0.5);
 }
 
 .font-light {
-  color: $lightColor ;
+  color: $lightColor !important;
 }
 .font-dark {
-  color: $darkColor ;
+  color: $darkColor !important;
 }
 .bg-ash {
   background-color: $light-input-bg !important;
