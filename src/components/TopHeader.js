@@ -12,19 +12,11 @@ const TopHeader = () => {
   return (
     <>
       <nav
-        className={
-          theme === "light"
-            ? "navbar align-items-start navbar-light py-2 px-5 bg-ash"
-            : "header-dark-bg navbar align-items-start navbar-light py-2 px-5"
-        }
+        className={`navbar align-items-start navbar-light py-2 px-5 ${theme === "light" ? "bg-ash" : "header-dark-bg"}`}
       >
         <div className="col-12 col-md-4 col-lg-6">
           <input
-            className={
-              theme === "light"
-                ? "form-control form-control-dark rounded-pill search-width bg-ash"
-                : "form-control form-control-dark rounded-pill search-width input-dark font-dark"
-            }
+            className={`form-control form-control-dark rounded-pill search-width ${theme === "light" ? "bg-ash" : "input-dark font-dark"}`}
             type="text"
             placeholder="Search collection, bids and items"
             aria-label="Search"
@@ -38,11 +30,7 @@ const TopHeader = () => {
             style={{ width: "40px", height: "40px" }}
           />
           <div
-            className={
-              theme === "light"
-                ? "gap-2 d-flex font-light"
-                : "gap-2 d-flex font-dark"
-            }
+            className={`"gap-2 d-flex ${theme === "light" ? "font-light" : "font-dark"}`}
           >
             <img
               src={Profile}

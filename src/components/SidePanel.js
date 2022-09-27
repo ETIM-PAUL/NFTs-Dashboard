@@ -21,28 +21,16 @@ const SidePanel = () => {
   ];
   return (
     <div
-      className={
-        theme === "light"
-          ? "col-3 content-light pb-3 overflow-scroll"
-          : "col-3 content-dark pb-3 overflow-scroll"
-      }
+      className={`col-3 pb-3 overflow-scroll ${theme === 'light' ? 'content-light' : 'content-dark'}`}
     >
       <section className="pe-3 py-3 font-regular">
         <span
-          className={
-            theme === "light"
-              ? "fs-6 font-light fw-bolder"
-              : "fs-6 font-dark fw-bolder"
-          }
+          className={`fs-6 fw-bolder ${theme === 'light' ? 'font-light ' : 'font-dark'}`}
         >
           Highest Bid
         </span>
         <div
-          className={
-            theme === "light"
-              ? "py-2 mt-2 px-3 d-block bg-light card cardborder"
-              : "py-2 mt-2 px-3 d-block bg-dark card cardborder"
-          }
+          className={`py-2 mt-2 px-3 d-block card cardborder ${theme === 'light' ? 'bg-light' : 'bg-dark'}`}
         >
           <div className="row">
             <div className="col-6">
@@ -69,11 +57,7 @@ const SidePanel = () => {
               </span>
             </div>
             <span
-              className={
-                theme === "light"
-                  ? "font-light fw-semibold"
-                  : "font-dark fw-semibold"
-              }
+              className={`font-semibold ${theme === "light" ? "font-light" : "font-dark"}`}
             >
               12.5 ETH
             </span>
@@ -112,20 +96,12 @@ const SidePanel = () => {
       </section>
       <section className="pe-3 pt-3 font-regular">
         <span
-          className={
-            theme === "light"
-              ? "fs-6 font-light fw-bolder"
-              : "fs-6 font-dark fw-bolder"
-          }
+          className={`fs-6 fw-bolder ${theme === "light" ? "font-light " : "font-dark"}`}
         >
           Who to follow
         </span>
         <div
-          className={
-            theme === "light"
-              ? "py-2 mt-2 px-3 d-block bg-light card cardborder"
-              : "py-2 mt-2 px-3 d-block bg-dark card cardborder"
-          }
+          className={`py-2 mt-2 px-3 d-block card cardborder ${theme === 'light' ? 'bg-light' : 'bg-dark'}`}
         >
           {arraysUsers.map((user, index) => (
             <div className="d-flex justify-content-between py-2" key={index}>
@@ -137,20 +113,12 @@ const SidePanel = () => {
                 />
                 <div className="d-grid font-regular gap-0">
                   <span
-                    className={
-                      theme === "light"
-                        ? "font-light font-weight"
-                        : "font-dark font-weight"
-                    }
+                    className={`font-weight ${theme === "light" ? "font-light " : "font-dark"}`}
                   >
                     {user.username}
                   </span>
                   <span
-                    className={
-                      theme === "light"
-                        ? "icon-light default-font"
-                        : "icon-dark default-font"
-                    }
+                    className={`default-font ${theme === "light" ? "icon-light" : "icon-dark"}`}
                   >
                     {user.items}items
                   </span>

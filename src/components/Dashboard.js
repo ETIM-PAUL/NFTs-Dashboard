@@ -21,19 +21,13 @@ const CreatorFlex = ({ ...props }) => {
         <div className="d-grid gap-0">
           <span
             className={
-              theme === "light"
-                ? "font-light font-weight font-regular"
-                : "font-dark font-weight font-regular"
-            }
+              `font-weight font-regular ${theme === "light" ? "font-light" : "font-dark"}`}
           >
             {props.username}
           </span>
           <span
             className={
-              theme === "light"
-                ? "icon-light font-regular default-font"
-                : "icon-dark font-regular default-font"
-            }
+              `font-regular default-font ${theme === "light" ? "icon-light" : "icon-dark"}`}
           >
             {props.items} items
           </span>
@@ -41,10 +35,7 @@ const CreatorFlex = ({ ...props }) => {
       </div>
       <span
         className={
-          theme === "light"
-            ? "font-light font-regular fw-semibold default-font"
-            : "font-dark font-regular fw-semibold default-font"
-        }
+          `font-regular fw-semibold default-font ${theme === "light" ? "font-light" : "font-dark"}`}
       >
         $ {props.amount.toString()}+
       </span>
@@ -56,11 +47,7 @@ const FilterValue = ({ value, setFilter, filter }) => {
 
   return (
     <div
-      className={
-        filter === value
-          ? "s-6 d-flex justify-content-center active-filter font-dark filter-btn col-2 py-1"
-          : "s-6 d-flex justify-content-center  filter-btn col-2 py-1 dark-filter-bg"
-      }
+      className={`s-6 d-flex justify-content-center filter-btn col-2 py-1 ${filter === value ? " active-filter font-dark" : "dark-filter-bg"}`}
       onClick={() => setFilter(value)}
     >
       <span>{value}</span>
@@ -75,20 +62,13 @@ const Dashboard = () => {
   return (
     <div className="d-flex">
       <div
-        className={
-          theme === "light"
-            ? "content-light vh-100 overflow-scroll col-9 pb-5"
-            : "content-dark vh-100 overflow-scroll col-9 pb-5"
-        }
+        className={`vh-100 overflow-scroll col-9 pb-5 ${theme === "light" ? "content-light" : "content-dark"}`}
+
       >
         <section className="p-3 bg-red ">
           <div className="col-12 fs-6 d-flex font-regular justify-content-between">
             <span
-              className={
-                theme === "light"
-                  ? "font-light fw-bolder"
-                  : "font-dark fw-bolder"
-              }
+              className={`font-bolder ${theme === "light" ? "font-light" : "font-dark"}`}
             >
               Top Bids
             </span>
@@ -146,22 +126,14 @@ const Dashboard = () => {
         <section className="p-3 d-block">
           <div className="col-12 f-6 d-flex font-regular justify-content-between">
             <span
-              className={
-                theme === "light"
-                  ? "font-light fw-bolder"
-                  : "font-dark fw-bolder"
-              }
+              className={`font-bolder${theme === "light" ? "font-light" : "font-dark"}`}
             >
               Top Creators
             </span>
             <span className="blue me-2">See more</span>
           </div>
           <div
-            className={
-              theme === "light"
-                ? "py-2 px-2 mt-3 d-flex col-12 bg-light card cardborder"
-                : " py-2 px-2 mt-3 d-flex col-12 darkcard card cardborder"
-            }
+            className={`py-2 px-2 mt-3 d-flex col-12 card cardborder ${theme === "light" ? "bg-light" : "darkcard"}`}
           >
             <div className="d-flex flex-wrap justify-content-between my-2 align-items-center gap-2">
               <CreatorFlex
@@ -189,21 +161,14 @@ const Dashboard = () => {
             <span className=" blue me-2">Sort by</span>
           </div>
           <div
-            className={
-              theme === "light"
-                ? "py-2 px-2 mt-3 d-flex col-12 bg-light cardborder card"
-                : "py-2 px-2 mt-3 d-flex col-12 darkcard cardborder card"
-            }
+            className={`py-2 px-2 mt-3 d-flex col-12 card cardborder ${theme === "light" ? "bg-light" : "darkcard"}`}
+
             style={{ height: "200px", overflow: "auto" }}
           >
             <div className="d-flex flex-wrap justify-content-center my-2 align-items-center gap-2">
               <table className="col-12 ">
                 <thead
-                  className={
-                    theme === "light"
-                      ? "font-regular"
-                      : "font-regular icon-dark"
-                  }
+                  className={`font-regular ${theme === "light" ? "" : "font-regular"}`}
                 >
                   <tr>
                     <th>Collection</th>

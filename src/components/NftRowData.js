@@ -21,11 +21,7 @@ const NftRowData = ({ ...props }) => {
                 style={{ width: "40px", height: "40px" }}
               />
               <span
-                className={
-                  theme === "light"
-                    ? "font-light font-regular font-weight"
-                    : "font-dark font-regular font-weight"
-                }
+                className={`font-regular font-weight ${theme === "light" ? "font-light" : "font-dark"}`}
               >
                 {props.name}
               </span>

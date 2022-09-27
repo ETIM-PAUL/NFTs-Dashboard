@@ -11,11 +11,7 @@ const NftCard = ({ ...props }) => {
   const [loved, setLoved] = useState(true);
   return (
     <div
-      className={
-        theme === "light"
-          ? "py-2 px-2 d-block cardborder card"
-          : "py-2 px-2 d-block darkcard cardborder card"
-      }
+      className={`py-2 px-2 d-block cardborder card ${theme === "light" ? "" : "darkcard"}`}
     >
       <img src={props.nftImg} alt="" className="img-fluid w-100 h-auto" />
       <img
@@ -51,20 +47,14 @@ const NftCard = ({ ...props }) => {
           </span>
         </div>
         <span
-          className={
-            theme === "light"
-              ? "font-light fw-semibold"
-              : "font-dark fw-semibold"
-          }
+          className={`fw-semibold ${theme === "light" ? "icon-light" : "font-dark"}`}
         >
           {props.amount} ETH
         </span>
       </div>
       <div className="d-flex justify-content-between">
         <span
-          className={
-            theme === "light" ? "fw-semibold" : "fw-semibold font-dark"
-          }
+          className={`fw-semibold ${theme === "light" ? "" : "font-dark"}`}
         >
           {props.nftName}
         </span>

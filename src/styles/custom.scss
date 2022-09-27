@@ -18,10 +18,10 @@ $primary-font-color-light: rgba(255, 255, 255, 0.5);
 }
 
 .font-light {
-  color: $lightColor;
+  color: $lightColor ;
 }
 .font-dark {
-  color: $darkColor !important;
+  color: $darkColor ;
 }
 .bg-ash {
   background-color: $light-input-bg !important;
@@ -145,16 +145,16 @@ $primary-font-color-light: rgba(255, 255, 255, 0.5);
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: red;
+  color: white !important;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: red;
+  color: white;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: red;
+  color: white;
 }

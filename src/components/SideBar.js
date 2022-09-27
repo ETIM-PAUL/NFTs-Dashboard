@@ -6,6 +6,12 @@ import Message from "../assets/icons/messages.svg";
 import Setting from "../assets/icons/settings.svg";
 import Wallet from "../assets/icons/wallet.svg";
 import Col from "../assets/icons/collection.svg";
+import MarketDark from "../assets/icons/marketDark.svg";
+import DashboardDark from "../assets/icons/dashboardDark.svg";
+import MessageDark from "../assets/icons/messagesDark.svg";
+import SettingDark from "../assets/icons/settingsDark.svg";
+import WalletDark from "../assets/icons/walletDark.svg";
+import ColDark from "../assets/icons/collectionDark.svg";
 import Ad from "../assets/NFTs/bottomAd.png";
 import SideBarItem from "./SideBarItem";
 import { HiSun, HiMoon } from "react-icons/hi";
@@ -18,64 +24,44 @@ const SideBar = () => {
 
   return (
     <div
-      className={
-        theme === "light"
-          ? "align-items-start px-2 bg-white col-2"
-          : "align-items-start px-2 -bg-dark col-2"
-      }
+      className={`align-items-start px-2 col-2 ${theme === "light" ? "bg-white" : "bg-dark"}`}
     >
       <div className="d-flex p-3 col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap gap-2">
         <span className="navbar-brand mx-0 fw-bold fs-6 " href="#">
           <img src={Logo} alt="" className="" />
         </span>
         <span
-          class={
-            theme === "light"
-              ? "navbar-brand fw-bold fs-6 font-light"
-              : "navbar-brand fw-bold fs-6 font-dark"
-          }
+          className={`navbar-brand fw-bold fs-6 ${theme === "light" ? "font-light" : "font-dark"}`}
           href="#"
         >
           Ai NFT{theme}
         </span>
       </div>
 
-      <div class="mt-2 pt-5 px-3">
-        <SideBarItem title="Dashboard" icon={Dashboard} link="" />
-        <SideBarItem title="Market place" icon={Market} link="market-place" />
-        <SideBarItem title="My collection" icon={Col} link="collection" />
+      <div className="mt-2 pt-5 px-3">
+        <SideBarItem title="Dashboard" lightIcon={Dashboard} darkIcon={DashboardDark} link="" />
+        <SideBarItem title="Market place" lightIcon={Market} darkIcon={MarketDark} link="market-place" />
+        <SideBarItem title="My collection" lightIcon={Col} darkIcon={ColDark} link="collection" />
       </div>
-      <div class="mt-5 pt-2 px-3">
+      <div className="mt-5 pt-2 px-3">
         <span
-          className={
-            theme === "light"
-              ? "font-regular fw-semibold"
-              : "font-regular fw-semibold font-dark"
-          }
+          className={`font-regular fw-semibold ${theme === "light" ? "fw-semibold" : "font-dark"}`}
         >
           Profile
         </span>
-        <SideBarItem title="Messages" icon={Message} link="messages" />
-        <SideBarItem title="My wallet" icon={Wallet} link="my-wallet" />
-        <SideBarItem title="Settings" icon={Setting} link="settings" />
+        <SideBarItem title="Messages" lightIcon={Message} darkIcon={MessageDark} link="messages" />
+        <SideBarItem title="My wallet" lightIcon={Wallet} darkIcon={WalletDark} link="my-wallet" />
+        <SideBarItem title="Settings" lightIcon={Setting} darkIcon={SettingDark} link="settings" />
       </div>
       <div className="mt-5 pt-2 px-3">
         <div className="d-flex gap-3">
           <span
-            className={
-              theme === "light"
-                ? "font-regular fw-semibold d-flex align-items-center"
-                : "font-regular font-dark fw-semibold d-flex align-items-center"
-            }
+            className={`font-regular fw-semibold d-flex align-items-center ${theme === "light" ? "" : "font-dark"}`}
           >
             {theme === "light" ? "Light mode" : "Dark mode"}
           </span>
           <button
-            className={
-              theme === "light"
-                ? "light-mood-button mode-button d-flex justify-content-between align-items-center"
-                : "dark-mood-button mode-button d-flex justify-content-between align-items-center"
-            }
+            className={`mode-button d-flex justify-content-between align-items-center ${theme === "light" ? "light-mood-button" : "dark-mood-button"}`}
           >
             <HiSun
               className={theme === "light" ? "fs-2 sun-light" : "fs-2 sun-dark"}
