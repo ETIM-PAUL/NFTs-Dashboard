@@ -25,7 +25,7 @@ const SideBar = () => {
 
   return (
     <div
-      className={`align-items-start px-2 col-2 ${theme === "light" ? "bg-white" : "bg-dark"}`}
+      className={`align-items-start px-2 col-2 d-none d-lg-block ${theme === "light" ? "bg-white" : "bg-dark"}`}
     >
       <div className="d-flex p-3 col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap gap-2">
         <span className="navbar-brand mx-0 fw-bold fs-6 " href="#">

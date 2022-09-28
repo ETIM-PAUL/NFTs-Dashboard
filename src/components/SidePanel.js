@@ -21,7 +21,7 @@ const SidePanel = () => {
   ];
   return (
     <div
-      className={`col-3 pb-3 overflow-scroll ${theme === 'light' ? 'content-light' : 'content-dark'}`}
+      className={`d-none d-lg-block col-3 pb-3 overflow-scroll ${theme === 'light' ? 'content-light' : 'content-dark'}`}
     >
       <section className="pe-3 py-3 font-regular">
         <span

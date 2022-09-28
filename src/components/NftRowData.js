@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import EthIcon from "../assets/icons/ethIcon.svg";
+import EthIconDark from "../assets/icons/ethIconDark.svg";
 import Profile from "../assets/icons/profile.svg";
 import { selectTheme } from "../redux/themeSlice";
 
@@ -28,13 +29,13 @@ const NftRowData = ({ ...props }) => {
             </div>
           </td>
           <td className="default-font">
-            <img src={EthIcon} alt="" className="pe-1" />
+            <img src={theme === "light" ? EthIcon : EthIconDark} alt="" className="pe-1" />
             {props.volume}
           </td>
           <td className="default-font">{props.change}</td>
           <td className="default-font">{props.owners}K</td>
           <td className="default-font">
-            <img src={EthIcon} alt="" className="pe-1" />
+            <img src={theme === "light" ? EthIcon : EthIconDark} alt="" className="pe-1" />
             {props.midprice}
           </td>
           <td className="default-font">{props.items}</td>

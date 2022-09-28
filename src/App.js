@@ -9,7 +9,7 @@ function App() {
     <div className="content-width">
       <div className="d-flex">
         <SideBar />
-        <div className="d-block col-10">
+        <div className="d-block col-12 col-lg-10">
           <TopHeader />
           <Routes>
             <Route path="/" element={<Dashboard />} />

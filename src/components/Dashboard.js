@@ -47,7 +47,7 @@ const FilterValue = ({ value, setFilter, filter }) => {
 
   return (
     <div
-      className={`s-6 d-flex justify-content-center filter-btn col-2 py-1 ${filter === value ? " active-filter font-dark" : "dark-filter-bg"}`}
+      className={`s-6 d-flex justify-content-center filter-btn col-2 py-1 ${filter === value ? " active-filter font-dark" : "dark-filter-bg font-dark"}`}
       onClick={() => setFilter(value)}
     >
       <span>{value}</span>
@@ -60,9 +60,11 @@ const Dashboard = () => {
   const theme = useSelector(selectTheme);
 
   return (
-    <div className="d-flex">
+    <div className="d-flex "
+
+    >
       <div
-        className={`vh-100 overflow-scroll col-9 pb-5 ${theme === "light" ? "content-light" : "content-dark"}`}
+        className={`vh-100 overflow-scroll col-md-12 col-lg-9 pb-5 ${theme === "light" ? "content-light" : "content-dark"}`}
 
       >
         <section className="p-3 bg-red ">
@@ -124,9 +126,10 @@ const Dashboard = () => {
           </div>
         </section>
         <section className="p-3 d-block">
-          <div className="col-12 f-6 d-flex font-regular justify-content-between">
+          <div className="col-12 fs-6 d-flex font-regular justify-content-between">
             <span
-              className={`font-bolder${theme === "light" ? "font-light" : "font-dark"}`}
+              className={`font-bolder ${theme === "light" ? "font-light" : "font-dark"}`}
+
             >
               Top Creators
             </span>
@@ -157,7 +160,9 @@ const Dashboard = () => {
         </section>
         <section className="px-3 pt-3 pb-5 d-block">
           <div className="col-12 fs-6 d-flex font-regular justify-content-between">
-            <span className=" font-light fw-bolder">Top Nfts</span>
+            <span
+              className={`font-bolder ${theme === "light" ? "font-light" : "font-dark"}`}
+            >Top Nfts</span>
             <span className=" blue me-2">Sort by</span>
           </div>
           <div
@@ -168,10 +173,11 @@ const Dashboard = () => {
             <div className="d-flex flex-wrap justify-content-center my-2 align-items-center gap-2">
               <table className="col-12 ">
                 <thead
-                  className={`font-regular ${theme === "light" ? "" : "font-regular"}`}
+                  className={`font-regular ${theme === "light" ? "font-light" : "font-dark"}`}
                 >
                   <tr>
-                    <th>Collection</th>
+                    <th
+                    >Collection</th>
                     <th>Volume</th>
                     <th>24h</th>
                     <th>Owners</th>

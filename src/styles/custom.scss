@@ -158,3 +158,19 @@ $primary-font-color-light: rgba(255, 255, 255, 0.5);
   /* Microsoft Edge */
   color: white;
 }
+
+.dashboard-mobile{
+  box-shadow: 2px 1px 5px 1px rgba(15, 20, 25, 0.54);
+  border-radius: 20px;
+  position: absolute;
+  top:3.5rem;
+  width: 300px;
+  z-index: 10;
+}
+
+.dashboard-dark{
+  background: #272D37;
+}
+.dashboard-light{
+  background: $light;
+}
